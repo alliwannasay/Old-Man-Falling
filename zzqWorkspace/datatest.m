@@ -1,15 +1,11 @@
-[fucka,fuckt] = csi_get_all ('walk_ysz_201611241553.dat')
-mat = angle(fucka)
-firstMat = mat(:,1:90)
-plot(firstMat(1:30))
-After = []
-for i = 1:30
-    submat = firstMat(:,i)
-    subvec = submat'
-    Wn = 0.5; %Convert 3-dB frequency
-    % to normalized frequency: 0.4*pi rad/sample
-    [B,A] = butter(5,Wn,'low');
-    y = filter(B,A,subvec);
-    After = [After y']
-end
-
+[ma,timeTuple] = csi_get_all ('stand_zzq_201611241603.dat');
+rate = 0.5;
+% partOfMa = ma(1:100,:)
+lowPassResult = butter_low_pass(ma,rate);
+% mesh(abs(lowPassResult))
+meanResult = get_antennae_mean_vec(lowPassResult);
+stdResult = get_antennae_std_vec(lowPassResult);
+col = lowPassResult(:,1);
+vec = col';
+plot(abs(vec))
+[startVec,winSize] = get_fall_like_win_for_one_antennae(vec,10,1)
