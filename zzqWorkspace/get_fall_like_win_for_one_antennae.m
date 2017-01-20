@@ -6,7 +6,7 @@ startVec = []
 for i = 1:(t-winSize)
     winVec = vec(:,i:i+winSize);
     if mean(winVec) > threshold
-        startVec = [startVec i]
+        startVec = [startVec i];
     end
 end
     
