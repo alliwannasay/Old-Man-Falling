@@ -1,7 +1,7 @@
-oriFile = 'fall_zzq_201611241638'
-oriFilename = strcat(oriFile,'.dat')
+oriFile = 'fall_ysz_201611241642';
+oriFilename = strcat(oriFile,'.dat');
 [ma,timeTuple] = csi_get_all (oriFilename);
-size(ma);
+size(ma)
 rate = 0.5;
 % partOfMa = ma(1:100,:)
 lowPassResult = butter_low_pass(ma,rate);
@@ -10,11 +10,11 @@ lowPassResult = butter_low_pass(ma,rate);
 % stdResult = get_antennae_std_vec(lowPassResult);
 argButterRate = 0.5;
 argWinSize = 10;
-argAtContainThre = 25;
+argAtContainThre = 23;
 argStdWeight = 0.2;
-startVec = get_fall_like_win(lowPassResult,argWinSize,argAtContainThre,argStdWeight);
+startVec = get_fall_like_win(lowPassResult,argWinSize,argAtContainThre,argStdWeight)
 
-save_in_dat(lowPassResult,oriFile,48,0.5,10,25,0.2,1);
+% save_in_dat(lowPassResult,oriFile,24,argButterRate,argWinSize,argAtContainThre,argStdWeight,1);
 
 % aRead = dlmread('pureTest.txt');
 
