@@ -1,9 +1,20 @@
-[ma,timeTuple] = csi_get_all ('fall_zzq_201611241630.dat');
-size(ma)
+oriFile = 'fall_zzq_201611241638.dat'
+[ma,timeTuple] = csi_get_all (oriFile);
+size(ma);
 rate = 0.5;
 % partOfMa = ma(1:100,:)
 lowPassResult = butter_low_pass(ma,rate);
 % mesh(abs(lowPassResult))
 % meanResult = get_antennae_mean_vec(lowPassResult);
 % stdResult = get_antennae_std_vec(lowPassResult);
-[startVec,winSize] = get_fall_like_win(lowPassResult,stableThreshold,10,23,0.2)
+argButterRate = 0.5;
+argWinSize = 10;
+argAtContainThre = 25;
+argStdWeight = 0.2;
+startVec = get_fall_like_win(lowPassResult,argWinSize,argAtContainThre,argStdWeight);
+
+save_in_dat(lowPassResult,oriFile,48,0.5,10,25,0.2,1);
+
+% aRead = dlmread('pureTest.txt');
+
+
