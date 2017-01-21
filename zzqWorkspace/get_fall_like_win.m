@@ -7,7 +7,7 @@ for i = 1:(m-winSize)
     winMa = ma(i:i+winSize,:);
     isTaking = 0;
     for j = 1:n
-        thisThreshold = stableThreshold(1,j)
+        thisThreshold = stableThreshold(1,j);
         winAt = winMa(:,j);
         if mean(winAt') > thisThreshold
             isTaking = isTaking + 1;

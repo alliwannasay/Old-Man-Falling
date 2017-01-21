@@ -1,5 +1,6 @@
-oriFile = 'fall_zzq_201611241638.dat'
-[ma,timeTuple] = csi_get_all (oriFile);
+oriFile = 'fall_zzq_201611241638'
+oriFilename = strcat(oriFile,'.dat')
+[ma,timeTuple] = csi_get_all (oriFilename);
 size(ma);
 rate = 0.5;
 % partOfMa = ma(1:100,:)
