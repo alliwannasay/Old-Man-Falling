@@ -1,4 +1,6 @@
-lib
+lib/*
 .DS_Store
-originalData
+originalData/*
 *.dat
+*.pdf
+*.xlsx
