@@ -4,7 +4,7 @@ outFilename = strcat(int2str(label),'_res_');
 outFilename = strcat(outFilename,oriFile);
 outFilename = strcat(outFilename,'_');
 outFilename = strcat(outFilename,int2str(startPoint));
-outFilename = strcat(outFilename,'.txt');
+outFilename = strcat(outFilename,'.orx');
 dlmwrite(outFilename, head);
 saveMa = ma(startPoint:startPoint+argWinSize,:);
 dlmwrite(outFilename, saveMa, '-append','delimiter', '\t');
