@@ -1,0 +1,6 @@
+lib/*
+.DS_Store
+originalData/*
+*.dat
+*.pdf
+*.xlsx
