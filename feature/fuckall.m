@@ -20,3 +20,17 @@ for i=1:n
   DIRS(i).name  %%%%%%%要载入，做处理，你在这里弄就可以了
  end
 end
+
+>> ext = '*.orx'; 
+	files = dir(fullfile(filepath,ext)); 
+Undefined function or variable 'filepath'.
+ 
+>> filepath = 'd://thu//_ _//_//omf//data//data20161124//'
+
+filepath =
+
+d://thu//_ _//_//omf//data//data20161124//
+
+>> files = dir(fullfile(filepath,ext));
+>> ext = '*.dat';
+>> files = dir(fullfile(filepath,ext));
