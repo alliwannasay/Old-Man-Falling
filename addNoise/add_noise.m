@@ -1,4 +1,4 @@
-function [] = add_noise(filenameIn, filenameOut
+function [] = add_noise(filenameIn, filenameOut)
 	% http://cn.mathworks.com/help/matlab/ref/dlmwrite.html
 	[data,ts] = csi_get_all(filenameIn);
 	[m,n] = size(data);

@@ -20,8 +20,8 @@ function [] = an_main(filepath,fileExtOut,varargin)
 	ext = '*.dat'; 
 	files = dir(fullfile(filepath,ext)); 
 	for id = 1:length(files)
-		pureName = files(id).name;
-		fileName = fullfile(filepath,pureName);
-		filenameOut = fullfile(filepath,[pureName(1:end-4) '_' datestr(now,30) fileExtOut]);
+		pureName = files(id).name
+		fileName = fullfile(filepath,pureName)
+		filenameOut = fullfile(filepath,[pureName(1:end-4) '_' datestr(now,30) fileExtOut])
 		add_noise(fileName,filenameOut);
 	end
