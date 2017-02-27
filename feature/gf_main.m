@@ -1,9 +1,9 @@
-function [] = gf_main(filepath,filenameOut,varargin)
+function [] = gf_main(filepath,fileExtOut,varargin)
 	% http://blog.csdn.net/flyingworm_eley/article/details/6644970
 
 	if nargin == 0
 		filepath = '.';
-		filenameOut = 'fuck.all';
+		fileExtOut = '.fll';
 	elseif nargin == 1
 		filepath = '.';
 	else
@@ -19,7 +19,9 @@ function [] = gf_main(filepath,filenameOut,varargin)
 	ext = '*.orx'; 
 	files = dir(fullfile(filepath,ext)); 
 	for id = 1:length(files)
-		fileName = fullfile(filepath,files(id).name);
+		pureName = files(id).name;
+		fileName = fullfile(filepath,pureName);
+		filenameOut = fullfile(filepath,[pureName(1:end-4) fileExtOut])
 		get_features(fileName,filenameOut);
 	end
 
