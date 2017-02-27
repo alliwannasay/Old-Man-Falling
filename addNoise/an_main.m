@@ -1,4 +1,4 @@
-function [] = ad_main(filepath,fileExtOut,varargin)
+function [] = an_main(filepath,fileExtOut,varargin)
 	% http://blog.csdn.net/flyingworm_eley/article/details/6644970
 	% http://www.cnblogs.com/emanlee/archive/2011/12/19/2293234.html
 
