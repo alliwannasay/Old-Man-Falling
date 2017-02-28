@@ -9,5 +9,3 @@ for i = 1:(t-winSize)
         startVec = [startVec i];
     end
 end
-    
-    
