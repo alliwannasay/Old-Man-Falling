@@ -1,6 +1,6 @@
 function [] = get_features(filenameIn,filenameOut)
 	% [cfr_array, timestamp] = csi_get_all(filename);
-	[data,startPoint,argButterRate,argWinSize,argAtContainThre,argStdWeight,label] = pretreat(filenameIn);
+	[data,argButterRate,argWinSize,argAtContainThre,argStdWeight,label] = pretreat(filenameIn);
 
 	[m,n] = size(data);
 	% diff, gradient

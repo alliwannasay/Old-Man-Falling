@@ -1,6 +1,7 @@
 function [] = add_noise(filenameIn, filenameOut)
 	% http://cn.mathworks.com/help/matlab/ref/dlmwrite.html
-	[data,ts] = csi_get_all(filenameIn);
+	[data,argButterRate,argWinSize,argAtContainThre,argStdWeight,label] = pretreat(filenameIn);
+
 	[m,n] = size(data);
 
 	whatever = 7.5
@@ -28,5 +29,6 @@ function [] = add_noise(filenameIn, filenameOut)
 	end
 
 	result = data + re + im;
-
+    head = [argButterRate,argWinSize,argAtContainThre,argStdWeight,label];
+    dlmwrite(filenameOut, head);
 	dlmwrite(filenameOut,data,'-append','delimiter','\t');

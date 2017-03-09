@@ -16,12 +16,12 @@ function [] = gf_main(filepath,fileExtOut,varargin)
 	% 	filepath = '.'
 	% end
 
-	ext = '*.orx'; 
+	ext = '*.noi'; 
 	files = dir(fullfile(filepath,ext)); 
 	for id = 1:length(files)
 		pureName = files(id).name;
 		fileName = fullfile(filepath,pureName);
-		filenameOut = fullfile(filepath,[pureName(1:end-4) fileExtOut])
+		filenameOut = fullfile(filepath,[pureName(1:end-4) fileExtOut]);
 		get_features(fileName,filenameOut);
 	end
 

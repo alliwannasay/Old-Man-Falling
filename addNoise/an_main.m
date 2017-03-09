@@ -4,7 +4,7 @@ function [] = an_main(filepath,fileExtOut,varargin)
 
 	if nargin == 0
 		filepath = '.';
-		fileExtOut = '.orz';
+		fileExtOut = '.noi';
 	elseif nargin == 1
 		filepath = '.';
 	else
@@ -17,7 +17,7 @@ function [] = an_main(filepath,fileExtOut,varargin)
 	% 	filepath = '.'
 	% end
 
-	ext = '*.dat'; 
+	ext = '*.orx'; 
 	files = dir(fullfile(filepath,ext)); 
 	for id = 1:length(files)
 		pureName = files(id).name
