@@ -3,7 +3,7 @@ label = 0;
 % if rem(id,2) == 1
 %     label = 1;
 % end
-head = [argButterRate,argWinSize,argAtContainThre,argStdWeight,label];
+head = [argButterRate,argWinSize,argAtContainThre,argStdWeight];
 outFilename = strcat('',int2str(label));
 outFilename = strcat(outFilename,'_res_');
 outFilename = strcat(outFilename,oriFile);

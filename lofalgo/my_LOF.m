@@ -47,7 +47,8 @@ for i=1:m
     end
     lof(i)=sumlrd/n;
     if lof(i) >= arglof
-        lofresult = [lofresult i];
+        newRow = [i,lof(i)];
+        lofresult = [lofresult;newRow];
     end
 end
 
