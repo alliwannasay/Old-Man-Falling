@@ -55,13 +55,13 @@ end
 
 
 %%画图
-subplot(2,1,1)
-plot(1:size(x,1),x,'-b.','linewidth',2,'markersize',14.5);
-legend('原始数据');
-title('LOF方法效果图');
-set(legend,'location','best');
-subplot(2,1,2)
-plot(1:size(lof,2),lof,'-r.','linewidth',2,'markersize',14.5);
-legend('LOF值');
-set(legend,'location','best');
+% subplot(2,1,1)
+% plot(1:size(x,1),x,'-b.','linewidth',2,'markersize',14.5);
+% legend('原始数据');
+% title('LOF方法效果图');
+% set(legend,'location','best');
+% subplot(2,1,2)
+% plot(1:size(lof,2),lof,'-r.','linewidth',2,'markersize',14.5);
+% legend('LOF值');
+% set(legend,'location','best');
 end
