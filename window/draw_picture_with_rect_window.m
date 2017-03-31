@@ -1,5 +1,5 @@
 function [] = draw_picture_with_rect_window(ma,rectlist)
-ma = ma(:,:);
+ma = ma(1:6000,:);
 [m,n] = size(ma);
 inter = 1:1:m;
 ma = ma(inter,:);
