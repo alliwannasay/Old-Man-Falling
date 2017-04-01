@@ -10,7 +10,7 @@ train_label = train_matrix(:,1);
 test_fea = test_matrix(:,2:testn);
 test_label = test_matrix(:,1);
 
-svmStruct = svmtrain(train_fea,train_label,'kernel_function','mlp');
+svmStruct = svmtrain(train_fea,train_label,'kernel_function','mlp','showplot',true);
 C = svmclassify(svmStruct,test_fea);
 compare = [C test_label]
 err_rate = sum(test_label~= C)/testm; % mis-classification rate

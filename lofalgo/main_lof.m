@@ -1,7 +1,7 @@
-oriFile = 'fall_zzq_201603142212_100hz';
+oriFile = 'sit_zzq_20170320_100hz_situ1';
 argButterRate = 0.5;
-argstep = 10;
-arglof = 18;
+argstep = 5;
+arglof = 10;
 argInterval = 100;
 argRadius = 100;
 
@@ -9,7 +9,7 @@ argRadius = 100;
 lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
 % mesh(abs(lowPassResult));
 
-lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval);
+lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
 [m,n] = size(lofresult);
 [am,an] = size(lowPassResult);
 rectlist = [];
@@ -28,7 +28,6 @@ for i = 1:n
     newrect = [left right];
     rectlist = [rectlist;newrect];
     ma = lowPassResult(left:right,:);
-    % save_in_dat_lof(ma,lofresult(i),oriFile,i,argButterRate,argWinSize,argAtContainThre,argStdWeight)
 end
 draw_picture_with_rect(abs(lowPassResult),rectlist);
 

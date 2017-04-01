@@ -18,7 +18,7 @@ for i = 1:rm
     right = rectlist(i,2);
     maxa = max(toShow(left:right));
     H = rectangle('Position',[left,0.1,right-left,maxa+0.1],'Curvature',[0,0],...
-          'EdgeColor','r','LineStyle','--');
+          'EdgeColor','r','LineStyle','--','LineWidth',3);
 end
 
 
