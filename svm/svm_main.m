@@ -26,7 +26,7 @@ function [] = svm_main(filepath,fileExtOut,varargin)
 		% get_features(fileName,filenameOut);
     end
     svm_matrix = set_up_svm_ma(filenames);
-    filenameOut = fullfile(filepath,['../test_result' fileExtOut]);
+    filenameOut = fullfile(filepath,['../all_result' fileExtOut]);
     dlmwrite(filenameOut, svm_matrix, 'delimiter', '\t');
     
     

@@ -1,0 +1,4 @@
+1result;linear;0.125
+1result;quadratic;0.125
+1result;rbf;0.1875
+1result;polynomial;0.125

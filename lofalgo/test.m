@@ -1,4 +1,4 @@
-oriFile = 'sit_zzq_20170320_100hz_situ1';
+oriFile = 'fall_zzq_20170328_100hz_situ1_2';
 argButterRate = 0.5;
 argstep = 10;
 arglof = 18;

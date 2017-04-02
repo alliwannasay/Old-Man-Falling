@@ -1,4 +1,4 @@
-oriFile = 'sit_zzq_20170320_100hz_situ1';
+oriFile = 'fall_zzq_20170328_100hz_situ1_2';
 argButterRate = 0.5;
 argstep = 5;
 arglof = 25;
@@ -8,8 +8,8 @@ argRadius = 100;
 
 lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
 
-lofresultyes = [515,2490,6485,9010];
-lofresultno = [3285,7490];
+lofresultyes = [2005,3115,6150];
+lofresultno = [2485,4245,5385,7150];
 
 [m,n] = size(lofresultyes);
 [am,an] = size(lowPassResult);
@@ -27,7 +27,7 @@ for i = 1:n
         left = right - argRadius*2;
     end
     ma = lowPassResult(left:right,:);
-    save_in_dat_lof(ma,lofresultyes(i),oriFile,i,argButterRate,argstep,arglof,argInterval,1)
+    save_in_dat_lof_fall(ma,lofresultyes(i),oriFile,i,argButterRate,argstep,arglof,argInterval,1)
 end
 
 [m,n] = size(lofresultno);
@@ -43,6 +43,6 @@ for i = 1:n
         left = right - argRadius*2;
     end
     ma = lowPassResult(left:right,:);
-    save_in_dat_lof(ma,lofresultno(i),oriFile,i,argButterRate,argstep,arglof,argInterval,0)
+    save_in_dat_lof_fall(ma,lofresultno(i),oriFile,i,argButterRate,argstep,arglof,argInterval,0)
 end
 

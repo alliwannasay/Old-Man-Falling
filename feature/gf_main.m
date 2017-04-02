@@ -16,7 +16,7 @@ function [] = gf_main(filepath,fileExtOut,varargin)
 	% 	filepath = '.'
 	% end
 
-	ext = '*.noi'; 
+	ext = '*.orx'; 
 	files = dir(fullfile(filepath,ext)); 
 	for id = 1:length(files)
 		pureName = files(id).name;

@@ -1,0 +1,2 @@
+10result;quadratic;0.2
+23result;rbf;0.19048
