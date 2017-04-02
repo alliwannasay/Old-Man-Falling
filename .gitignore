@@ -1,4 +1,4 @@
 .DS_Store
 *.pdf
 *.xlsx
-new_data/*
+new_data

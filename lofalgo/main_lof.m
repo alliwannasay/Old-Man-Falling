@@ -1,4 +1,4 @@
-oriFile = 'fall_zzq_20170328_100hz_situ1_2';
+oriFile = 'fall_zzq_20170322_100hz_situ1';
 argButterRate = 0.5;
 argstep = 5;
 arglof = 10;
@@ -29,6 +29,7 @@ for i = 1:n
     rectlist = [rectlist;newrect];
     ma = lowPassResult(left:right,:);
 end
-draw_picture_with_rect(abs(lowPassResult),rectlist);
+% draw_picture_with_rect(abs(lowPassResult),rectlist);
+
 
 
