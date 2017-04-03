@@ -25,9 +25,11 @@ kerlist{3} = 'mlp';
 kerlist{4} = 'rbf';
 kerlist{5} = 'polynomial';
 
-returnResult = [0,0,0,0,0];
+returnResult = [0,0,0,0,0;0,0,0,0,0;0,0,0,0,0];
 for id = 1:length(kerlist)
-    err_rate = -1;
+    err_rate = NaN;
+    mdr = NaN;
+    fdr = NaN;
     try
         svmStruct = svmtrain(train_fea,train_label,'kernel_function',kerlist{id});
         C = svmclassify(svmStruct,test_fea);
@@ -36,7 +38,11 @@ for id = 1:length(kerlist)
         if err_rate <= 0.2 && strcmp(testfile,'test_result.svm')
             dlmwrite('menu.txt',strcat(outfile,';',kerlist{id},';',num2str(err_rate)),'-append','delimiter', '');
         end
-        dlmwrite(outfile, strcat(kerlist{id},': ', num2str(err_rate)),'-append','delimiter', '');
+        [mdr,fdr] = svm_mfdr(C,test_label);
+        dlmwrite(outfile, strcat(kerlist{id},': ', num2str(err_rate),' mdr: ',num2str(mdr),' fdr:',num2str(fdr)),'-append','delimiter', '');
+        
     end
-    returnResult(id) = err_rate;
+    returnResult(1,id) = err_rate;
+    returnResult(2,id) = mdr;
+    returnResult(3,id) = fdr;
 end
