@@ -1,0 +1,27 @@
+******************************
+test_result.svm
+trainm:71
+testm:8
+linear:0 mdr:0 fdr:0
+quadratic:0 mdr:0 fdr:0
+mlp:0.625 mdr:0.8 fdr:0.5
+rbf:0.375 mdr:0 fdr:0.375
+polynomial:0.125 mdr:0 fdr:0.16667
+******************************
+train_result.svm
+trainm:71
+testm:71
+linear:0 mdr:0 fdr:0
+quadratic:0 mdr:0 fdr:0
+mlp:0.5493 mdr:0.58 fdr:0.32258
+rbf:0 mdr:0 fdr:0
+polynomial:0 mdr:0 fdr:0
+******************************
+all_result.svm
+trainm:71
+testm:79
+linear:0 mdr:0 fdr:0
+quadratic:0 mdr:0 fdr:0
+mlp:0.55696 mdr:0.6 fdr:0.33333
+rbf:0.037975 mdr:0 fdr:0.051724
+polynomial:0.012658 mdr:0 fdr:0.017857

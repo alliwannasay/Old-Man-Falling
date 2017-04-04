@@ -1,18 +1,14 @@
-oriFile = 'fall_zzq_201603142212_100hz';
+oriFile = 'walk_zzq_201611241559_20170227T211116';
 argButterRate = 0.5;
 argstep = 5;
-arglof = 10;
+arglof = 25;
 argInterval = 100;
 argRadius = 100;
-
-
 lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
-% mesh(abs(lowPassResult));
-
 lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
 [m,n] = size(lofresult);
 [am,an] = size(lowPassResult);
-rectlist = [];
+totalResult = [];
 
 for i = 1:n
     left = (lofresult(i)-argRadius);
@@ -25,11 +21,14 @@ for i = 1:n
         right = am;
         left = right - argRadius*2;
     end
-    newrect = [left right];
-    rectlist = [rectlist;newrect];
+    
     ma = lowPassResult(left:right,:);
+    feaResult = get_features_fly(ma,right-left+1);
+    label = svm_fly(feaResult);
+    totalResult = [totalResult;lofresult(i),label];
 end
-% draw_picture_with_rect(abs(lowPassResult),rectlist);
+
+display(totalResult);
 
 
 

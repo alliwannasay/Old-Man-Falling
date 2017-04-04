@@ -10,7 +10,8 @@ P = cvpartition(Y,'Holdout',0.20);
 % Use a linear support vector machine classifier
 X(P.training,:)
 Y(P.training)
-svmStruct = svmtrain(X(P.training,:),Y(P.training))
+svmStruct = svmtrain(X(P.training,:),Y(P.training),'showplot',true)
+dlmread('svm_test.txt',svmStruct);
 C = svmclassify(svmStruct,X(P.test,:),'showplot',true);
 err_rate = sum(Y(P.test)~= C)/P.TestSize; % mis-classification rate
 disp(err_rate);
