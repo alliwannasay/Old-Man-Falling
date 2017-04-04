@@ -1,5 +1,5 @@
 function label = svm_fly(feaResult)
-    train_matrix = dlmread('17result_train_result_fly.svm');
+    train_matrix = dlmread('5result_train_result_fly.svm');
     train_matrix = abs(train_matrix);
     [trainm,trainn] = size(train_matrix);
     train_fea = train_matrix(:,2:trainn);

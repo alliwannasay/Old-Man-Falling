@@ -1,10 +1,11 @@
-oriFile = 'walk_zzq_201611241559_20170227T211116';
+oriFile = 'sit_ysz_20170322_100hz_situ1';
 argButterRate = 0.5;
 argstep = 5;
-arglof = 25;
+arglof = 20;
 argInterval = 100;
 argRadius = 100;
 lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
+lowPassResult = lowPassResult(2600:4200,:);
 lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
 [m,n] = size(lofresult);
 [am,an] = size(lowPassResult);

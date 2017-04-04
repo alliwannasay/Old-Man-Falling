@@ -1,27 +1,27 @@
 ******************************
 test_result.svm
-trainm:71
-testm:8
+trainm:91
+testm:9
 linear:0 mdr:0 fdr:0
 quadratic:0 mdr:0 fdr:0
-mlp:0.625 mdr:0.8 fdr:0.5
-rbf:0.375 mdr:0 fdr:0.375
-polynomial:0.125 mdr:0 fdr:0.16667
+mlp:0.55556 mdr:0.83333 fdr:0
+rbf:0.33333 mdr:0 fdr:0.33333
+polynomial:0 mdr:0 fdr:0
 ******************************
 train_result.svm
-trainm:71
-testm:71
+trainm:91
+testm:91
 linear:0 mdr:0 fdr:0
 quadratic:0 mdr:0 fdr:0
-mlp:0.5493 mdr:0.58 fdr:0.32258
+mlp:0.50549 mdr:0.93878 fdr:0
 rbf:0 mdr:0 fdr:0
 polynomial:0 mdr:0 fdr:0
 ******************************
 all_result.svm
-trainm:71
-testm:79
+trainm:91
+testm:100
 linear:0 mdr:0 fdr:0
 quadratic:0 mdr:0 fdr:0
-mlp:0.55696 mdr:0.6 fdr:0.33333
-rbf:0.037975 mdr:0 fdr:0.051724
-polynomial:0.012658 mdr:0 fdr:0.017857
+mlp:0.51 mdr:0.92727 fdr:0
+rbf:0.03 mdr:0 fdr:0.051724
+polynomial:0 mdr:0 fdr:0

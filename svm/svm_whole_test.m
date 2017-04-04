@@ -12,7 +12,7 @@ for i = start:start+len-1
         continue;
     end
     
-    if returnResult(1,1) <= 0.2
+    if returnResult(1,1) <= 0.1
         goodlist = [goodlist i];
         svmResult = svmResult + returnResult;
         sumlen = sumlen+1;
