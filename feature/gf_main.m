@@ -5,7 +5,7 @@ function [] = gf_main(filepath,fileExtOut,varargin)
 		filepath = '.';
 		fileExtOut = '.fll';
 	elseif nargin == 1
-		filepath = '.';
+		fileExtOut = '.fll';
 	else
 		body
 	end
