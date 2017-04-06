@@ -1,35 +1,32 @@
-oriFile = 'sit_ysz_20170322_100hz_situ1';
-argButterRate = 0.5;
-argstep = 5;
-arglof = 20;
-argInterval = 100;
-argRadius = 100;
-lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
-lowPassResult = lowPassResult(2600:4200,:);
-lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
-[m,n] = size(lofresult);
-[am,an] = size(lowPassResult);
-totalResult = [];
+function [] = gf_main(filepath,fileExtOut,varargin)
+    % http://blog.csdn.net/flyingworm_eley/article/details/6644970
 
-for i = 1:n
-    left = (lofresult(i)-argRadius);
-    right = (lofresult(i)+argRadius);
-    if lofresult(i) <= argRadius
-        left = 1;
-        right = argRadius*2+1;
+    if nargin == 0
+        filepath = '.';
+        fileExtOut = '.wtf';
+    elseif nargin == 1
+        fileExtOut = '.wtf';
+    else
+        % body
     end
-    if lofresult(i) >= am-argRadius
-        right = am;
-        left = right - argRadius*2;
+
+    % if length(filepath) == 0
+    %   filepath = '.';
+    % elseif length(filepath) ~= 0
+    %   filepath = '.'
+    % end
+
+    ext = '*.dat'; 
+    lastNumOfFile = 0;
+    curNumOfFile = 0;
+
+    while(1)
+        files = dir(fullfile(filepath,ext)); 
+        curNumOfFile = size(files);
+        if lastNumOfFile < curNumOfFile
+            id = curNumOfFile - 1;
+            pureName = files(id).name;
+            treat_single_file(pureName(1:end-4));
+            lastNumOfFile = curNumOfFile;
+        end
     end
-    
-    ma = lowPassResult(left:right,:);
-    feaResult = get_features_fly(ma,right-left+1);
-    label = svm_fly(feaResult);
-    totalResult = [totalResult;lofresult(i),label];
-end
-
-display(totalResult);
-
-
-
