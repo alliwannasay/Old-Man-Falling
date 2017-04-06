@@ -1,3 +1,5 @@
+load handel 
+player = audioplayer(y, Fs);
 oriFile = 'sit_ysz_20170322_100hz_situ1';
 argButterRate = 0.5;
 argstep = 5;
@@ -5,7 +7,7 @@ arglof = 20;
 argInterval = 100;
 argRadius = 100;
 lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
-lowPassResult = lowPassResult(2600:4200,:);
+lowPassResult = lowPassResult(:,:);
 lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
 [m,n] = size(lofresult);
 [am,an] = size(lowPassResult);
@@ -26,6 +28,10 @@ for i = 1:n
     ma = lowPassResult(left:right,:);
     feaResult = get_features_fly(ma,right-left+1);
     label = svm_fly(feaResult);
+%     if label == 1
+%         msgbox('À§µπ¡À£°')
+%         playblocking(player);
+%     end
     totalResult = [totalResult;lofresult(i),label];
 end
 
