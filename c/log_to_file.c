@@ -179,7 +179,7 @@ struct cmsg_loop* create_cml()
 
 void num_to_str(int num, char* str)
 {
-	sprintf(*str, "%d", num); 
+	sprintf(str, "%d", &num); 
 }
 
 void check_usage(int argc, char** argv)
