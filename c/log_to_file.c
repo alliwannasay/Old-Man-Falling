@@ -14,7 +14,7 @@
 
 #define MAX_PAYLOAD 2048
 #define SLOW_MSG_CNT 1
-#define WINDOW_WIDTH 200
+#define WINDOW_WIDTH 500
 
 // struct cn_msg
 // {
@@ -41,6 +41,8 @@ void check_usage(int argc, char** argv);
 
 FILE* open_file(char* filename, char* spec);
 
+void close_file();
+
 void caught_signal(int sig);
 
 void exit_program(int code);
@@ -53,7 +55,7 @@ int main(int argc, char** argv)
 	/* Local variables */
 	struct sockaddr_nl proc_addr, kern_addr;	// addrs for recv, send, bind
 	struct cn_msg *cmsg;
-	struct cmsg_loop *cml_head = create_cml();
+	//struct cmsg_loop *cml_head = create_cml();
 
 	char buf[4096];
 	int ret;
@@ -67,7 +69,7 @@ int main(int argc, char** argv)
 	char filenameNum[10];
 	char *catStr = "_";
 	char *filenameExt = ".dat";
-	strcpy(&filenameBase, argv[1]);
+	strcpy(filenameBase, argv[1]);
 
 
 
@@ -113,12 +115,12 @@ int main(int argc, char** argv)
 		if (count % WINDOW_WIDTH == 0)
 		{
 			// open a file
-			strcpy(&filenameFull, &filenameBase);
-			strcat(&filenameFull, catStr);
-			num_to_str(fileNum, &filenameNum);
-			strcat(&filenameFull, &filenameNum);
-			strcat(&filenameFull, &filenameExt);
-			out = open_file(&filenameFull, "w");
+			strcpy(filenameFull, filenameBase);
+			strcat(filenameFull, catStr);
+			num_to_str(fileNum, filenameNum);
+			strcat(filenameFull, filenameNum);
+			strcat(filenameFull, filenameExt);
+			out = open_file(filenameFull, "w");
 		}
 		
 		/* Receive from socket with infinite timeout */
@@ -156,7 +158,7 @@ struct cmsg_loop* create_cml()
 {
     struct cmsg_loop *head;
     struct cmsg_loop *p1,*p2;
-    n = 1;
+    int n = 1;
     p1 = p2 = (struct cmsg_loop *)malloc(sizeof(struct cmsg_loop));
     head = NULL;
     while (n < WINDOW_WIDTH)
@@ -179,7 +181,7 @@ struct cmsg_loop* create_cml()
 
 void num_to_str(int num, char* str)
 {
-	sprintf(str, "%09d", &num); 
+	sprintf(str, "%09d", num); 
 }
 
 void check_usage(int argc, char** argv)
