@@ -17,6 +17,11 @@ lofresult1 = my_LOF(vec1,arglof);
 lofresult2 = my_LOF(vec2,arglof);
 lofresult3 = my_LOF(vec3,arglof);
 lofresult = [lofresult1;lofresult2;lofresult3];
+[lm,ln] = size(lofresult);
+if ln == 0
+    outlierPs = [];
+    return;
+end
 lofresult(:,1) = lofresult(:,1)*argstep;
 lofresult = flipud(sortrows(lofresult,2))
 outlierPs = get_outlier_classified(lofresult,argInterval)

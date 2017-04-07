@@ -1,11 +1,13 @@
 function [] = treat_single_file(oriFile)
+    load handel 
+    player = audioplayer(y, Fs);
 	argButterRate = 0.5;
-	argstep = 5;
+	argstep = 10;
 	arglof = 20;
 	argInterval = 100;
 	argRadius = 100;
 	lowPassResult = preprepare(oriFile,argButterRate,argstep,arglof,argInterval);
-	lowPassResult = lowPassResult(2600:4200,:);
+	lowPassResult = lowPassResult(2600:2700,:);
 	lofresult = get_compressed_stream(abs(lowPassResult),argstep,arglof,argInterval)
 	[m,n] = size(lofresult);
 	[am,an] = size(lowPassResult);
@@ -26,6 +28,10 @@ function [] = treat_single_file(oriFile)
 	    ma = lowPassResult(left:right,:);
 	    feaResult = get_features_fly(ma,right-left+1);
 	    label = svm_fly(feaResult);
+        if label == 1
+            msgbox('À§µπ¡À£°')
+            playblocking(player);
+        end
 	    totalResult = [totalResult;lofresult(i),label];
 	end
 

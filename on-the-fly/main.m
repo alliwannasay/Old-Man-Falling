@@ -1,5 +1,5 @@
-function [] = gf_main(filepath,fileExtOut,varargin)
-
+function [] = main(filepath,fileExtOut,varargin)
+    load handel 
     if nargin == 0
         filepath = '.';
         fileExtOut = '.wtf';
@@ -21,7 +21,7 @@ function [] = gf_main(filepath,fileExtOut,varargin)
 
     while(1)
         files = dir(fullfile(filepath,ext)); 
-        curNumOfFile = size(files);
+        [curNumOfFile,nuse] = size(files);
         if lastNumOfFile < curNumOfFile
             id = curNumOfFile - 1;
             pureName = files(id).name;
